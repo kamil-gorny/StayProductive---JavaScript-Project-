@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5dc;
+}
+h1 {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+  line-height: 15vh;
+}
+header {
+  width: 100%;
+  text-align: center;
+  font-size: 1.4em;
+  height: 6vh;
+  display: flex;
+  background-color: #29b6f6;
+  align-items: center;
+  transition: all 0.2 ease-in-out;
+  animation-name: changebg;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  opacity: 0.8;
+}
+header h1 {
+  padding-left: 1.5em;
+}
+.icons {
+  display: flex;
+  justify-content: flex-end;
+  width: 75vw;
+  align-items: center;
+}
+.leafactive {
+  color: #4caf50;
+  border-color: #4caf50;
+}
+#leaf:hover {
+  color: #4caf50;
+  border-color: #4caf50;
+  cursor: pointer;
+}
+.boltactive {
+  color: #fdd835;
+  border-color: #fdd835;
+}
+#bolt:hover {
+  color: #fdd835;
+  border-color: #fdd835;
+  cursor: pointer;
+}
+.tintactive {
+  color: #1e88e5;
+  border-color: #1e88e5;
+}
+#tint:hover {
+  color: #1e88e5;
+  border-color: #1e88e5;
+  cursor: pointer;
+}
+.fireactive {
+  color: #fb8c00;
+  border-color: #fb8c00;
+}
+#fire:hover {
+  color: #fb8c00;
+  border-color: #fb8c00;
+  cursor: pointer;
+}
+
+.fas {
+  pointer-events: none;
+}
+
+.icon {
+  width: 1.3em;
+  height: 1.3em;
+  line-height: 1.3em;
+  font-size: 0.9em;
+  padding: 0.1em;
+  margin: 2px;
+  border-radius: 10%;
+  border-width: 2px;
+  border-style: solid;
+}
+.iconnotactive {
+  border-color: white;
+  color: white;
+}
+.create {
+  margin-top: -3em;
+  width: 100%;
+  height: 94vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.create h1 {
+  animation-name: changecolor;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  opacity: 0.8;
+}
+.create button {
+  height: 3.1em;
+  width: 6em;
+  border: none;
+  color: white;
+  font-size: 0.9em;
+  transition: all 0.2 ease-in-out;
+  animation-name: changebg;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes changecolor {
+  0% {
+    color: #03a9f4;
+  }
+  20% {
+    color: #ffc107;
+  }
+  40% {
+    color: #3f51b5;
+  }
+  60% {
+    color: #8bc34a;
+    border-color: #8bc34a;
+  }
+  80% {
+    color: #e91e63;
+  }
+  100% {
+    color: #ff9800;
+  }
+}
+@keyframes changebg {
+  0% {
+    background-color: #03a9f4;
+  }
+  20% {
+    background-color: #ffc107;
+  }
+  40% {
+    background-color: #3f51b5;
+  }
+  60% {
+    background-color: #8bc34a;
+  }
+  80% {
+    background-color: #e91e63;
+  }
+  100% {
+    background-color: #ff9800;
+  }
+}
+
+.list {
+  border: none;
+
+  width: 24em;
+  height: 3em;
+  border-color: beige;
+  text-align: center;
+  font-size: 0.9em;
+}
+.list:focus {
+  border-color: white;
+  background-color: white;
+}
+.taskbox {
+  margin-top: 3em;
+  width: 20vw;
+  min-height: 20vh;
+  background-color: #d5e6f0;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  margin-left: 2em;
+  border-radius: 10px;
+  color: rgb(148, 144, 148);
+  text-transform: uppercase;
+  padding-bottom: 1em;
+  padding-top: 0.1em;
+}
+
+.taskitem {
+  list-style-type: none;
+  text-align: center;
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  line-height: 40px;
+  border-radius: 1em;
+  margin-bottom: 1em;
+  box-shadow: 0px 2px 13px rgba(0, 0, 0, 0.2);
+}
+.tasklist {
+  text-align: center;
+  padding: 0;
+}
