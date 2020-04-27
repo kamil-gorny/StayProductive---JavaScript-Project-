@@ -32,7 +32,7 @@ header {
 header h1 {
   padding-left: 1.5em;
 }
-.icons {
+.buttons {
   display: flex;
   justify-content: flex-end;
   width: 75vw;
@@ -42,7 +42,7 @@ header h1 {
   color: #4caf50;
   border-color: #4caf50;
 }
-#leaf:hover {
+#leaf-btn:hover {
   color: #4caf50;
   border-color: #4caf50;
   cursor: pointer;
@@ -51,7 +51,7 @@ header h1 {
   color: #fdd835;
   border-color: #fdd835;
 }
-#bolt:hover {
+#bolt-btn:hover {
   color: #fdd835;
   border-color: #fdd835;
   cursor: pointer;
@@ -60,7 +60,7 @@ header h1 {
   color: #1e88e5;
   border-color: #1e88e5;
 }
-#tint:hover {
+#tint-btn:hover {
   color: #1e88e5;
   border-color: #1e88e5;
   cursor: pointer;
@@ -69,7 +69,7 @@ header h1 {
   color: #fb8c00;
   border-color: #fb8c00;
 }
-#fire:hover {
+#fire-btn:hover {
   color: #fb8c00;
   border-color: #fb8c00;
   cursor: pointer;
