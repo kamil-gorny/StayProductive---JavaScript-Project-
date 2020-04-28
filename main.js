@@ -16,18 +16,18 @@ var taskController = (function(){
 //Sounds Controller
 var soundsController = (function(){
     return {
+        //Function plays sound when element has active class and stops if it doesn't
         toggleSound: function(sound){
             var element = document.getElementById(sound+"-btn");
             var audio = document.querySelector("#"+sound);
+
             if(element.classList.contains(sound+"active")){
                 audio.play();
             }
             else{
                 audio.pause();
-            }
-                
+            }       
         }
-        
     }
     //Start sound
     //Set Volume
@@ -70,11 +70,9 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
 
             document.getElementById(soundBtnID).classList.toggle(soundName+"active");
             document.getElementById(soundBtnID).classList.toggle("iconnotactive");
-            
+
             soundsCtrl.toggleSound(soundName);
         }
-        console.log(soundBtnID);
-        console.log(soundName);
     };
 
     return{

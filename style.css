@@ -22,7 +22,7 @@ header {
   align-items: center;
   transition: all 0.2 ease-in-out;
   animation-name: changebg;
-  animation-duration: 30s;
+  animation-duration: 10s;
   animation-timing-function: linear;
   animation-fill-mode: backwards;
   animation-iteration-count: infinite;
@@ -105,7 +105,7 @@ header h1 {
 }
 .create h1 {
   animation-name: changecolor;
-  animation-duration: 30s;
+  animation-duration: 10s;
   animation-timing-function: linear;
   animation-fill-mode: backwards;
   animation-iteration-count: infinite;
@@ -120,7 +120,7 @@ header h1 {
   font-size: 0.9em;
   transition: all 0.2 ease-in-out;
   animation-name: changebg;
-  animation-duration: 30s;
+  animation-duration: 10s;
   animation-timing-function: linear;
   animation-fill-mode: backwards;
   animation-iteration-count: infinite;
