@@ -212,3 +212,23 @@ header h1 {
   text-align: center;
   padding: 0;
 }
+.container{
+  margin: 2em 0 0 2em;
+  width: 12.5vw;
+  min-height: 5em;
+  padding: 1em;
+  background-color: #f4ead0;
+  border-radius: .25rem;
+  position: relative;
+}
+
+.container-input{
+  position: absolute;
+  bottom: 1em;
+  width: 11vw;
+}
+.container-button{
+  position: absolute;
+  bottom: 1em;
+  right:1em;
+}

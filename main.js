@@ -16,7 +16,7 @@ var taskController = (function(){
 //Sounds Controller
 var soundsController = (function(){
     return {
-        //Function plays sound when element has active class and stops if it doesn't
+        //Function plays sound when element has active class and stops if it hasn't
         toggleSound: function(sound){
             var element = document.getElementById(sound+"-btn");
             var audio = document.querySelector("#"+sound);
@@ -44,6 +44,7 @@ var pomodoroController = (function(){
 var uiController = (function(){
     var DOMStrings = {
       buttons: '.buttons',
+      createbutton: '.createbutton'
     };
 
     return{
@@ -59,6 +60,7 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
    
     var setupEventListeners = function(){
         document.querySelector(DOM.buttons).addEventListener('click', playSoundController);
+        document.querySelector(DOM.createbutton).addEventListener('click', addTaskBoardController);
     };
     
     var playSoundController = function(event){
@@ -73,6 +75,10 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
 
             soundsCtrl.toggleSound(soundName);
         }
+    };
+
+    var addTaskBoardController = function(){
+        
     };
 
     return{
