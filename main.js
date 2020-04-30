@@ -70,6 +70,7 @@ var uiController = (function(){
       buttons: '.buttons',
       createbutton: '.createbutton',
       createTaskBoard: '.list',
+      taskBoardContainer: '.taskBoardContainer'
       
     };
 
@@ -79,6 +80,13 @@ var uiController = (function(){
         },
         getInput: function(){
            return document.querySelector(DOMStrings.createTaskBoard).value;
+        },
+        addTaskBoardUi: function(obj){
+            var html, newhtml, element;
+            element = DOMStrings.taskBoardContainer;
+            html = '<div class="container"><p>%NAME%</p><form action=""><input type="text" class="container-input" placeholder="+Dodaj zadanie"/><input type="submit" class="container-button" value="+"></form></div>'
+            newhtml = html.replace('%NAME%', obj.toUpperCase());
+            document.querySelector(element).insertAdjacentHTML('beforeend', newhtml);
         }
     }
 })();
@@ -108,10 +116,10 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
 
     var addTaskBoardController = function(event){
         event.preventDefault();
-        console.log("clicked");
         var taskBoardName;
         taskBoardName = uiCtrl.getInput();
         taskCtrl.addItem(taskBoardName);
+        uiCtrl.addTaskBoardUi(taskBoardName);
     };
 
     return{
