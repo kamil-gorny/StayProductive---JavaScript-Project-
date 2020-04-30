@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f5f5dc;
+  font-family: "Raleway";
 }
 h1 {
   font-family: "Raleway", sans-serif;
@@ -217,18 +218,39 @@ header h1 {
   width: 12.5vw;
   min-height: 5em;
   padding: 1em;
-  background-color: #f4ead0;
+  background-color: #c7bfaa;
+  /*f4ead0*/
   border-radius: .25rem;
   position: relative;
+  float:left;
 }
 
 .container-input{
   position: absolute;
   bottom: 1em;
-  width: 11vw;
+  width: 10vw;
 }
 .container-button{
   position: absolute;
   bottom: 1em;
-  right:1em;
+  right: 1.7em;
+  background-color: #9b9585;
+  color:#fff;
+  border:none;
+  height: 1.9rem;
+ 
+}
+.container-input{
+  border:none;
+  height:1.8rem;
+  background-color: #fff;
+  color:#9b9585;
+  border-top-left-radius:.25rem;
+  border-bottom-left-radius:.25rem;
+}
+.container-input::placeholder{
+  color:#9b9585;
+}
+.taskBoardName{
+  color: white;
 }
