@@ -9,6 +9,30 @@ var taskController = (function(){
         this.id = id;
         this.description = description;
     }
+    var data = {
+        allTaskBoards: []
+    }
+
+    return {
+        addItem: function(val){
+            var ID, newBoard;
+            if (data.allTaskBoards.length >0){
+                ID = data.allTaskBoards[data.allTaskBoards.length - 1].id + 1; 
+            }
+            else{
+                ID = 0;
+            }
+            newBoard = new TaskBoard(ID, val);
+            data.allTaskBoards.push(newBoard);
+            console.log(newBoard.id);
+        },
+        getData: function(){
+            console.log(data);
+        },
+       
+
+
+    }
     //Add Item 
     //Delete Item
 })();
@@ -44,12 +68,17 @@ var pomodoroController = (function(){
 var uiController = (function(){
     var DOMStrings = {
       buttons: '.buttons',
-      createbutton: '.createbutton'
+      createbutton: '.createbutton',
+      createTaskBoard: '.list',
+      
     };
 
     return{
         getDomStrings: function(){
             return DOMStrings;
+        },
+        getInput: function(){
+           return document.querySelector(DOMStrings.createTaskBoard).value;
         }
     }
 })();
@@ -77,8 +106,12 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
         }
     };
 
-    var addTaskBoardController = function(){
-        
+    var addTaskBoardController = function(event){
+        event.preventDefault();
+        console.log("clicked");
+        var taskBoardName;
+        taskBoardName = uiCtrl.getInput();
+        taskCtrl.addItem(taskBoardName);
     };
 
     return{
@@ -87,6 +120,9 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
         }
     }
 
-})(soundsController, uiController, globalController, taskController);
+})(soundsController, uiController, globalController, taskController );
 
 globalController.init();
+
+
+
