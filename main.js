@@ -1,14 +1,14 @@
 //Task Controller
 var taskController = (function(){
     var TaskBoard = function(id, name){
-        this.id;
-        this.name;
-    }
+        this.id = id;
+        this.name = name;
+    };
 
     var Task = function(id, description){
         this.id = id;
         this.description = description;
-    }
+    };
     var data = {
         allTaskBoards: []
     }
