@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f5f5dc;
+  background-color: #f4eeff;
   font-family: "Raleway";
 }
 h1 {
@@ -130,43 +130,43 @@ header h1 {
 
 @keyframes changecolor {
   0% {
-    color: #03a9f4;
+    color: #424874;
   }
   20% {
-    color: #ffc107;
+    color: #424874;
   }
   40% {
-    color: #3f51b5;
+    color: #424874;
   }
   60% {
-    color: #8bc34a;
-    border-color: #8bc34a;
+    color: #424874;
+    border-color: #424874;
   }
   80% {
-    color: #e91e63;
+    color: #424874;
   }
   100% {
-    color: #ff9800;
+    color: #424874;
   }
 }
 @keyframes changebg {
   0% {
-    background-color: #03a9f4;
+    background-color: #424874;
   }
   20% {
-    background-color: #ffc107;
+    background-color: #424874;
   }
   40% {
-    background-color: #3f51b5;
+    background-color: #424874;
   }
   60% {
-    background-color: #8bc34a;
+    background-color: #424874;
   }
   80% {
-    background-color: #e91e63;
+    background-color: #424874;
   }
   100% {
-    background-color: #ff9800;
+    background-color: #424874;
   }
 }
 
@@ -218,7 +218,7 @@ header h1 {
   width: 12.5vw;
   min-height: 5em;
   padding: 1em;
-  background-color: #c7bfaa;
+  background-color: #dcd6f7;
   /*f4ead0*/
   border-radius: .25rem;
   position: relative;
@@ -234,7 +234,7 @@ header h1 {
   position: absolute;
   bottom: 1em;
   right: 1.7em;
-  background-color: #9b9585;
+  background-color: #a6b1e1;
   color:#fff;
   border:none;
   height: 1.9rem;
@@ -249,8 +249,16 @@ header h1 {
   border-bottom-left-radius:.25rem;
 }
 .container-input::placeholder{
-  color:#9b9585;
+  color:#424874;
 }
 .taskBoardName{
-  color: white;
+  color: #424874;
+  font-weight: 700;
+  
+}
+.pencil-icon{
+  float: right;
+  position: relative;
+  right: 0.6em;
+  color:#424874;
 }

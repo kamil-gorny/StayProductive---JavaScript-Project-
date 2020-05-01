@@ -85,8 +85,8 @@ var uiController = (function(){
         addTaskBoardUi: function(obj){
             var html, newhtml, element;
             element = DOMStrings.taskBoardContainer;
-            html = '<div class="container"><p class="taskBoardName">%NAME%</p><form action=""><input type="text" class="container-input" placeholder="+Dodaj zadanie"/><input type="submit" class="container-button" value="Dodaj"></form></div>'
-            newhtml = html.replace('%NAME%', obj.toUpperCase());
+            html = '<div class="container"><p class="taskBoardName">%NAME% <i class="fa fa-pencil-alt pencil-icon"></i></p><form action=""><input type="text" class="container-input" placeholder="+Dodaj zadanie"/><input type="submit" class="container-button" value="Dodaj"></form></div>'
+            newhtml = html.replace('%NAME%', obj);
             document.querySelector(element).insertAdjacentHTML('beforeend', newhtml);
         }
     }
