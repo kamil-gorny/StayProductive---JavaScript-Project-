@@ -113,7 +113,7 @@ header h1 {
   animation-direction: alternate;
   opacity: 0.8;
 }
-.create button {
+.createbutton {
   height: 3.1em;
   width: 6em;
   border: none;
@@ -261,4 +261,30 @@ header h1 {
   position: relative;
   right: 0.6em;
   color:#424874;
+}
+.hide{
+  display: none;
+}
+
+.addTaskContainer{
+  margin: 1.1em 0 0 2em; 
+  padding: 1em;
+  border-radius: .25rem;
+  position: relative;
+  float:left
+}
+.addTaskInput{
+  border:1px solid #a6b1e1;
+  height:3rem;
+  background-color: #fff;
+  color:#9b9585;
+  border-top-left-radius:.25rem;
+  border-bottom-left-radius:.25rem
+}
+.addTaskButton{
+  background-color: #a6b1e1;
+  color:#fff;
+  width: 7rem;
+  height: 3.25rem;
+  border:1px solid #a6b1e1;
 }

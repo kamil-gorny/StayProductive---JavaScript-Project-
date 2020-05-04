@@ -30,7 +30,9 @@ var taskController = (function(){
         getData: function(){
             console.log(data);
         },
-       
+        deleteItem: function(id){
+
+        }
 
 
     }
@@ -71,9 +73,19 @@ var uiController = (function(){
       buttons: '.buttons',
       createbutton: '.createbutton',
       createTaskBoard: '.list',
-      taskBoardContainer: '.taskBoardContainer'
-      
+      taskBoardContainer: '.taskBoardContainer',
+      createField: '.create',
+      addTaskButton: '.addTaskButton'
     };
+    var hideFromUi = function(element){
+        document.querySelector(element).classList.toggle('hide');
+    }
+    var showCreateField = function(){
+        var html;
+        var taskBoard = DOMStrings.taskBoardContainer;
+        html = '<div class="addTaskContainer"><form action=""><input type="text" class="addTaskInput" placeholder="+Dodaj tablie"/><button class="addTaskButton">Dodaj</button></form></div>';
+        document.querySelector(taskBoard).insertAdjacentHTML('beforeend', html);
+    }
 
     return{
         getDomStrings: function(){
@@ -85,9 +97,14 @@ var uiController = (function(){
         addTaskBoardUi: function(obj){
             var html, newhtml, element;
             element = DOMStrings.taskBoardContainer;
-            html = '<div class="container"><p class="taskBoardName">%NAME% <i class="fa fa-pencil-alt pencil-icon"></i></p><form action=""><input type="text" class="container-input" placeholder="+Dodaj zadanie"/><input type="submit" class="container-button" value="Dodaj"></form></div>'
+            html = '<div class="container"><p class="taskBoardName">%NAME% <i class="fa fa-times fa-2x pencil-icon"></i></p><form action=""><input type="text" class="container-input" placeholder="+Dodaj zadanie"/><input type="submit" class="container-button" value="Dodaj"></form></div>'
             newhtml = html.replace('%NAME%', obj);
             document.querySelector(element).insertAdjacentHTML('beforeend', newhtml);
+            if(!document.querySelector(DOMStrings.createField).classList.contains('hide')){
+                hideFromUi(DOMStrings.createField);
+                showCreateField();
+            }
+            
         }
     }
 })();
@@ -99,6 +116,7 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
     var setupEventListeners = function(){
         document.querySelector(DOM.buttons).addEventListener('click', playSoundController);
         document.querySelector(DOM.createbutton).addEventListener('click', addTaskBoardController);
+        document.querySelector(DOM.addTaskButton).addEventListener('click', addTaskBoardController);
     };
     
     var playSoundController = function(event){
