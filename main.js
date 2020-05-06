@@ -75,29 +75,32 @@ var uiController = (function(){
       createTaskBoard: '.list',
       taskBoardContainer: '.taskBoardContainer',
       createField: '.create',
-      addTaskButton: '.addTaskButton'
+      addTaskButton: '.addTaskButton',
+      addTaskInput: '.addTaskInput',
+      addTaskContainer: '.addTaskContainer'
     };
     var hideFromUi = function(element){
         document.querySelector(element).classList.toggle('hide');
     }
     var showCreateField = function(){
-        var html;
-        var taskBoard = DOMStrings.taskBoardContainer;
-        html = '<div class="addTaskContainer"><form action=""><input type="text" class="addTaskInput" placeholder="+Dodaj tablie"/><button class="addTaskButton">Dodaj</button></form></div>';
-        document.querySelector(taskBoard).insertAdjacentHTML('beforeend', html);
+        // var html;
+        // var taskBoard = DOMStrings.taskBoardContainer;
+        // html = '<div class="addTaskContainer"><input type="text" class="addTaskInput" placeholder="+Dodaj tablie"/><button class="addTaskButton">Dodaj</button></div>';
+        // document.querySelector(taskBoard).insertAdjacentHTML('beforeend', html); 
+        document.querySelector(DOMStrings.addTaskContainer).classList.toggle('hide');
     }
 
     return{
         getDomStrings: function(){
             return DOMStrings;
         },
-        getInput: function(){
-           return document.querySelector(DOMStrings.createTaskBoard).value;
+        getInput: function(x){
+           return document.querySelector(x).value;
         },
         addTaskBoardUi: function(obj){
             var html, newhtml, element;
             element = DOMStrings.taskBoardContainer;
-            html = '<div class="container"><p class="taskBoardName">%NAME% <i class="fa fa-times fa-2x pencil-icon"></i></p><form action=""><input type="text" class="container-input" placeholder="+Dodaj zadanie"/><input type="submit" class="container-button" value="Dodaj"></form></div>'
+            html = '<div class="container"><p class="taskBoardName">%NAME% <i class="fas fa-ellipsis-h pencil-icon"></i></i></p><form action=""><input type="text" class="container-input" placeholder="+Dodaj zadanie"/><input type="submit" class="container-button" value="Dodaj"></form></div>'
             newhtml = html.replace('%NAME%', obj);
             document.querySelector(element).insertAdjacentHTML('beforeend', newhtml);
             if(!document.querySelector(DOMStrings.createField).classList.contains('hide')){
@@ -105,7 +108,8 @@ var uiController = (function(){
                 showCreateField();
             }
             
-        }
+        },
+       
     }
 })();
 
@@ -115,8 +119,13 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
    
     var setupEventListeners = function(){
         document.querySelector(DOM.buttons).addEventListener('click', playSoundController);
-        document.querySelector(DOM.createbutton).addEventListener('click', addTaskBoardController);
-        document.querySelector(DOM.addTaskButton).addEventListener('click', addTaskBoardController);
+        document.querySelector(DOM.createbutton).addEventListener('click', function(){
+            addTaskBoardController(event, DOM.createTaskBoard);
+        });
+        document.querySelector(DOM.addTaskButton).addEventListener('click', function(){
+            addTaskBoardController(event, DOM.addTaskInput);
+        });
+       
     };
     
     var playSoundController = function(event){
@@ -133,12 +142,14 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
         }
     };
 
-    var addTaskBoardController = function(event){
+    var addTaskBoardController = function(event,x){
         event.preventDefault();
         var taskBoardName;
-        taskBoardName = uiCtrl.getInput();
+        taskBoardName = uiCtrl.getInput(x);
         taskCtrl.addItem(taskBoardName);
         uiCtrl.addTaskBoardUi(taskBoardName);
+     
+        
     };
 
     return{
