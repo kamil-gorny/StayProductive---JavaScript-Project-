@@ -26,12 +26,20 @@ var taskController = (function(){
             newBoard = new TaskBoard(ID, val);
             data.allTaskBoards.push(newBoard);
             console.log(newBoard.id);
+            return newBoard;
         },
         getData: function(){
             console.log(data);
         },
         deleteItem: function(id){
-
+            var ids, index;
+            ids = data.allTaskBoards.map(function(current){
+                return current.id;
+            });
+            index = ids.indexOf(id);
+            if(index!=-1){
+                data.allTaskBoards.splice(index, 1);
+            }
         }
 
 
@@ -74,10 +82,11 @@ var uiController = (function(){
       createbutton: '.createbutton',
       createTaskBoard: '.list',
       taskBoardContainer: '.taskBoardContainer',
-      createField: '.create',
+      createField: '.createTaskBoard',
       addTaskButton: '.addTaskButton',
       addTaskInput: '.addTaskInput',
-      addTaskContainer: '.addTaskContainer'
+      addTaskContainer: '.addTaskContainer',
+      deleteTaskContainer: '.delete'  
     };
     var hideFromUi = function(element){
         document.querySelector(element).classList.toggle('hide');
@@ -100,8 +109,9 @@ var uiController = (function(){
         addTaskBoardUi: function(obj){
             var html, newhtml, element;
             element = DOMStrings.taskBoardContainer;
-            html = '<div class="container"><p class="taskBoardName">%NAME% <i class="fas fa-ellipsis-h pencil-icon"></i></i></p><form action=""><input type="text" class="container-input" placeholder="+Dodaj zadanie"/><input type="submit" class="container-button" value="Dodaj"></form></div>'
-            newhtml = html.replace('%NAME%', obj);
+            html = '<div class="container" id="%id%"><p class="taskBoardName">%NAME%<span class="delete"><i class="fas fa-times times-icon"></i></i></span></p><form action=""><input type="text" class="container-input" placeholder="+Dodaj zadanie"/><input type="submit" class="container-button" value="Dodaj"></form></div>'
+            newhtml = html.replace('%NAME%', obj.name);
+            newhtml = newhtml.replace('%id%', obj.id)
             document.querySelector(element).insertAdjacentHTML('beforeend', newhtml);
             if(!document.querySelector(DOMStrings.createField).classList.contains('hide')){
                 hideFromUi(DOMStrings.createField);
@@ -109,7 +119,13 @@ var uiController = (function(){
             }
             
         },
+        deleteTaskBoardUI: function(el){
+            console.log(el);
+            document.getElementById(el).parentElement.removeChild(document.getElementById(el));
+
+        }
        
+       //ellipsis-h 
     }
 })();
 
@@ -125,7 +141,10 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
         document.querySelector(DOM.addTaskButton).addEventListener('click', function(){
             addTaskBoardController(event, DOM.addTaskInput);
         });
-       
+   
+    }
+    var setupTaskContainerEventListeners = function(){
+        document.querySelector(DOM.deleteTaskContainer).addEventListener('click', deleteTaskContainerController);
     };
     
     var playSoundController = function(event){
@@ -144,13 +163,17 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
 
     var addTaskBoardController = function(event,x){
         event.preventDefault();
-        var taskBoardName;
+        var taskBoardName, newItem;
         taskBoardName = uiCtrl.getInput(x);
-        taskCtrl.addItem(taskBoardName);
-        uiCtrl.addTaskBoardUi(taskBoardName);
-     
-        
+        newItem = taskCtrl.addItem(taskBoardName);
+        uiCtrl.addTaskBoardUi(newItem);
+        setupTaskContainerEventListeners();
     };
+    var deleteTaskContainerController = function(e){
+        console.log(e.target.parentNode.parentNode.id);
+        taskCtrl.deleteItem(e.target.parentNode.parentNode.id);
+        uiCtrl.deleteTaskBoardUI(e.target.parentNode.parentNode.id);
+    }
 
     return{
         init: function(){

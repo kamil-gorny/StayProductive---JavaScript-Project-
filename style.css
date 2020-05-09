@@ -19,17 +19,11 @@ header {
   font-size: 1.4em;
   height: 6vh;
   display: flex;
-  background-color: #29b6f6;
+  background-color: #424874;
   align-items: center;
   transition: all 0.2 ease-in-out;
-  animation-name: changebg;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-fill-mode: backwards;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  opacity: 0.8;
 }
+
 header h1 {
   padding-left: 1.5em;
 }
@@ -95,7 +89,7 @@ header h1 {
   border-color: white;
   color: white;
 }
-.create {
+.createTaskBoard {
   margin-top: -3em;
   width: 100%;
   height: 94vh;
@@ -104,14 +98,8 @@ header h1 {
   justify-content: center;
   flex-direction: column;
 }
-.create h1 {
-  animation-name: changecolor;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-fill-mode: backwards;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  opacity: 0.8;
+.createTaskBoard h1 {
+  color: #424874;
 }
 .createbutton {
   height: 3.1em;
@@ -119,55 +107,8 @@ header h1 {
   border: none;
   color: white;
   font-size: 0.9em;
-  transition: all 0.2 ease-in-out;
-  animation-name: changebg;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-fill-mode: backwards;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes changecolor {
-  0% {
-    color: #424874;
-  }
-  20% {
-    color: #424874;
-  }
-  40% {
-    color: #424874;
-  }
-  60% {
-    color: #424874;
-    border-color: #424874;
-  }
-  80% {
-    color: #424874;
-  }
-  100% {
-    color: #424874;
-  }
-}
-@keyframes changebg {
-  0% {
-    background-color: #424874;
-  }
-  20% {
-    background-color: #424874;
-  }
-  40% {
-    background-color: #424874;
-  }
-  60% {
-    background-color: #424874;
-  }
-  80% {
-    background-color: #424874;
-  }
-  100% {
-    background-color: #424874;
-  }
+  background-color:#424874
+ 
 }
 
 .list {
@@ -256,9 +197,12 @@ header h1 {
   font-weight: 700;
   
 }
-.pencil-icon{
-  float: right;
+.delete{
+  float:right;
   position: relative;
+}
+.times-icon{
+  
   right: 0.6em;
   color:#424874;
 }
