@@ -143,8 +143,8 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
         });
    
     }
-    var setupTaskContainerEventListeners = function(){
-        document.querySelector(DOM.deleteTaskContainer).addEventListener('click', deleteTaskContainerController);
+    var setupTaskContainerEventListeners = function(x){
+        document.getElementById(x).addEventListener('click', deleteTaskContainerController);
     };
     
     var playSoundController = function(event){
@@ -167,7 +167,7 @@ var globalController = (function(soundsCtrl, uiCtrl, globalCtrl, taskCtrl){
         taskBoardName = uiCtrl.getInput(x);
         newItem = taskCtrl.addItem(taskBoardName);
         uiCtrl.addTaskBoardUi(newItem);
-        setupTaskContainerEventListeners();
+        setupTaskContainerEventListeners(newItem.id);
     };
     var deleteTaskContainerController = function(e){
         console.log(e.target.parentNode.parentNode.id);
